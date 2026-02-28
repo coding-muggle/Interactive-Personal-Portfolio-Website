@@ -89,7 +89,7 @@ export default function HeroSection() {
         alignItems: 'center',
         justifyContent: 'center',
         paddingTop: '100px',
-        paddingBottom: '60px',
+        paddingBottom: '100px',
         overflow: 'hidden',
       }}
       aria-label="Home"
