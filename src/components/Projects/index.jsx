@@ -55,11 +55,7 @@ function ProjectModal({ project, onClose }) {
 
         <p style={{ color: 'var(--text-mid)', lineHeight: 1.85, fontSize: 14, marginBottom: 24 }}>{project.desc}</p>
 
-        <div
-  className="projects-row"
-  style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: 18 }}
-  role="list"
->
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20, marginBottom: 28 }}>
           <div>
             <div className="label" style={{ marginBottom: 10, color: project.color }}>Role</div>
             <div style={{ fontFamily: 'var(--font-mono)', fontSize: 13, color: 'var(--text)' }}>{project.role}</div>
@@ -105,7 +101,7 @@ function ProjectModal({ project, onClose }) {
               src={project.image}
               alt={`${project.title} full size`}
               style={{
-                maxWidth: '50vw',
+                maxWidth: '70vw',
                 maxHeight: '70vh',
                 objectFit: 'contain',
                 borderRadius: 12,
@@ -134,10 +130,9 @@ export default function ProjectsSection() {
         </div>
 
         <div
-  className="projects-row"
-  style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: 18 }}
-  role="list"
->
+          style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: 18 }}
+          role="list"
+        >
           {PROJECTS.map((proj) => (
             <div
               key={proj.id}
@@ -147,9 +142,7 @@ export default function ProjectsSection() {
               onKeyDown={(e) => e.key === 'Enter' && setModal(proj)}
               tabIndex={0}
               aria-label={`${proj.title} — click to view details`}
-              style={{
-  gridColumn: proj.featured ? 'span 2' : 'span 1',
-}}
+              style={{ gridColumn: proj.featured ? 'span 2' : 'span 1' }}
             >
               {proj.featured && (
                 <div style={{

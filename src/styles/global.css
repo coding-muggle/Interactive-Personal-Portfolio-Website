@@ -437,30 +437,3 @@ body {
 @media (max-width: 768px) {
   .desktop-nav { display: none !important; }
 }
-
-@media (max-width: 768px) {
-  .projects-row .proj-card {
-    width: auto;
-  }
-}
-
-@media (max-width: 768px) {
-  .projects-row {
-    display: flex !important;
-    overflow-x: auto;
-    overflow-y: hidden;
-    gap: 14px;
-    padding-bottom: 10px;
-    -webkit-overflow-scrolling: touch;
-    scroll-snap-type: x mandatory;
-  }
-
-  .projects-row::-webkit-scrollbar {
-    display: none;
-  }
-
-  .projects-row .proj-card {
-    flex: 0 0 88%;
-    scroll-snap-align: start;
-  }
-}
