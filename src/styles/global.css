@@ -436,18 +436,10 @@ body {
 
 @media (max-width: 768px) {
   .desktop-nav { display: none !important; }
-}
-@media (max-width: 768px) {
-  .projects-row .proj-card {
-    width: auto;
-  }
-  @media (max-width: 768px) {
-  #projects .section-wrap {
-    overflow: visible;
-  }
-}
-}
-@media (max-width: 768px) {
+
+  /* Projects: horizontal swipe on mobile */
+  #projects .section-wrap { overflow: visible; }
+
   .projects-row {
     display: flex !important;
     overflow-x: auto;
@@ -458,12 +450,11 @@ body {
     scroll-snap-type: x mandatory;
   }
 
-  .projects-row::-webkit-scrollbar {
-    display: none;
-  }
+  .projects-row::-webkit-scrollbar { display: none; }
 
   .projects-row .proj-card {
     flex: 0 0 88%;
     scroll-snap-align: start;
+    width: auto;
   }
 }
