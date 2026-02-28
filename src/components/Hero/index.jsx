@@ -88,8 +88,8 @@ export default function HeroSection() {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        paddingTop: '60px',
-        paddingBottom: '40px',
+        paddingTop: '100px',
+        paddingBottom: '60px',
         overflow: 'hidden',
       }}
       aria-label="Home"
