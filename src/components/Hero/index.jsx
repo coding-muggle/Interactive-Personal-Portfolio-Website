@@ -84,7 +84,7 @@ export default function HeroSection() {
       id="home"
       style={{
         position: 'relative',
-        height: '100vh',
+        minheight: '100vh',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
