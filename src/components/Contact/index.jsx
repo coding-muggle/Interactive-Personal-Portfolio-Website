@@ -162,7 +162,7 @@ export default function ContactSection() {
         display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 14,
       }}>
         <div style={{ fontFamily: 'var(--font-head)', fontSize: 13, fontWeight: 700, color: 'var(--cyan)', letterSpacing: '0.05em' }}>
-          &lt;Z.A&gt;
+          &lt; Z.A &gt;
         </div>
         <div style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: 'var(--text-dim)' }}>
           Built with React · Three.js · GSAP · {new Date().getFullYear()}
