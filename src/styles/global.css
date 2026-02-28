@@ -441,6 +441,11 @@ body {
   .projects-row .proj-card {
     width: auto;
   }
+  @media (max-width: 768px) {
+  #projects .section-wrap {
+    overflow: visible;
+  }
+}
 }
 @media (max-width: 768px) {
   .projects-row {
