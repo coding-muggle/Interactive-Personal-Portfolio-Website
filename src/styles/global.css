@@ -419,7 +419,7 @@ body {
 
   /* Projects: horizontal swipe on mobile */
   #projects .section-wrap { 
-    overflow: visible; 
+    overflow: 'hidden'; 
     width: 100%;
   }
 
