@@ -142,7 +142,8 @@ export default function ProjectsSection() {
               onKeyDown={(e) => e.key === 'Enter' && setModal(proj)}
               tabIndex={0}
               aria-label={`${proj.title} — click to view details`}
-              style={{ gridColumn: proj.featured ? 'span 2' : 'span 1' }}
+              style={{gridColumn: proj.featured ? 'span 2' : 'span 1',
+}}
             >
               {proj.featured && (
                 <div style={{
