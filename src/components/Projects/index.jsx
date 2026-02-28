@@ -56,17 +56,6 @@ function ProjectModal({ project, onClose }) {
         <p style={{ color: 'var(--text-mid)', lineHeight: 1.85, fontSize: 14, marginBottom: 24 }}>{project.desc}</p>
 
         <div
-  className="projects-row"
-  style={{
-    display: 'flex',
-    gap: 14,
-    overflowX: 'auto',
-    overflowY: 'hidden',
-    WebkitOverflowScrolling: 'touch',
-    paddingBottom: 10,
-    scrollSnapType: 'x mandatory',
-  }}
-  role="list"
 >  <div>
             <div className="label" style={{ marginBottom: 10, color: project.color }}>Role</div>
             <div style={{ fontFamily: 'var(--font-mono)', fontSize: 13, color: 'var(--text)' }}>{project.role}</div>
