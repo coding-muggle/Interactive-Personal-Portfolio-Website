@@ -234,6 +234,42 @@ body {
   transform: perspective(600px) rotateX(-3deg) rotateY(3deg) translateY(-6px);
 }
 
+/* Projects: mobile = horizontal swipe, desktop = grid */
+.projects-row {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+  gap: 14px;
+  padding-bottom: 10px;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory;
+  touch-action: pan-x;
+}
+
+.projects-row::-webkit-scrollbar { display: none; }
+.projects-row { scrollbar-width: none; }
+
+.projects-row .proj-card {
+  flex: 0 0 88%;
+  scroll-snap-align: start;
+}
+
+/* Desktop grid */
+@media (min-width: 769px) {
+  .projects-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 18px;
+    overflow: visible;
+    padding-bottom: 0;
+    scroll-snap-type: none;
+  }
+
+  .projects-row .proj-card {
+    flex: initial;
+  }
+}
 
 /* ─── Timeline ────────────────────────────────────── */
 .tl-body {
@@ -437,11 +473,13 @@ body {
 @media (max-width: 768px) {
   .desktop-nav { display: none !important; }
 }
+
 @media (max-width: 768px) {
-  .projects-grid {
-    grid-template-columns: 1fr !important;
+  .projects-row .proj-card {
+    width: auto;
   }
 }
+
 @media (max-width: 768px) {
   .projects-row {
     display: flex !important;
