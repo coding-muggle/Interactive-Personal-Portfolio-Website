@@ -227,24 +227,13 @@ body {
   transform-style: preserve-3d;
   overflow: hidden;
 }
-.proj-card::after {
-  content: '';
-  position: absolute;
-  top: -100%;
-  left: -100%;
-  width: 60%;
-  height: 250%;
-  background: linear-gradient(105deg, transparent 40%, rgba(77,201,255,0.06) 50%, transparent 60%);
-  pointer-events: none;
-}
+
 .proj-card:hover {
   border-color: rgba(77,201,255,0.35);
   box-shadow: 0 16px 48px rgba(0,0,0,0.4), var(--glow-cyan);
   transform: perspective(600px) rotateX(-3deg) rotateY(3deg) translateY(-6px);
 }
-.proj-card:hover::after {
-  animation: glitch-sweep 0.55s ease forwards;
-}
+
 @keyframes glitch-sweep {
   0%   { left: -100%; top: -100%; }
   100% { left: 150%; top: 100%; }

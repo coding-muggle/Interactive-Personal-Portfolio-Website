@@ -130,9 +130,10 @@ export default function ProjectsSection() {
         </div>
 
         <div
-          style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: 18 }}
-          role="list"
-        >
+  className="projects-row"
+  style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: 18 }}
+  role="list"
+>
           {PROJECTS.map((proj) => (
             <div
               key={proj.id}
