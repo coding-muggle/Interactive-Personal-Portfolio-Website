@@ -67,13 +67,3 @@ Software & AI:
 - Retrieval-Augmented Generation (RAG)
 
 ---
-
-## Local Development
-
-Clone the repository:
-
-```bash
-git clone https://github.com/yourusername/portfolio.git
-cd portfolio
-npm install
-npm run dev
