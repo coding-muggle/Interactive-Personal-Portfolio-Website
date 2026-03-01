@@ -28,55 +28,39 @@ export function useMouseParallax() {
   return mouse;
 }
 
-// ── GSAP scroll reveal for sections ───────────────────────
-export function useReveal(ref, options = {}) {
+
+
+export function useReveal(ref) {
   useEffect(() => {
     if (!ref.current) return;
-    
-    // Use a mutation observer to re-apply animations when DOM changes
-    const animateReveals = () => {
-      const els = ref.current?.querySelectorAll('.reveal');
-      if (!els || !els.length) return;
-      
-      // Kill existing animations for these elements to prevent conflicts
-      gsap.killTweensOf(els);
-      
+
+    const ctx = gsap.context(() => {
+      const els = ref.current.querySelectorAll('.reveal');
+      if (!els.length) return;
+
       gsap.fromTo(
         els,
         { opacity: 0, y: 36 },
         {
-          opacity: 1, y: 0,
+          opacity: 1,
+          y: 0,
           duration: 0.85,
           stagger: 0.09,
           ease: 'power3.out',
           scrollTrigger: {
             trigger: ref.current,
             start: 'top 78%',
-            once: false,
+            once: true, // important
           },
         }
       );
-    };
-    
-    // Observe DOM mutations to catch filter changes
-    const observer = new MutationObserver(() => {
-      animateReveals();
-    });
-    
-    observer.observe(ref.current, {
-      childList: true,
-      subtree: true,
-      attributes: false,
-    });
-    
-    // Initial animation
-    animateReveals();
-    
-    return () => {
-      observer.disconnect();
-    };
-  }, [ref]);
+    }, ref);
+
+    return () => ctx.revert();
+  }, []); // runs once
 }
+
+
 
 // ── Floating skill side-panel visibility ──────────────────
 export function useSkillPanel(skillsSectionRef) {
