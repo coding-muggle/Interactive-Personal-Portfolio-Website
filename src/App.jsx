@@ -10,8 +10,8 @@ export default function App() {
   return (
     <>
       {/* Global UI */}
-      <Cursor />
-      <StarField />
+      {/* <Cursor /> */}
+      {/* <StarField /> */}
       <Nav />
 
       {/* Page */}
