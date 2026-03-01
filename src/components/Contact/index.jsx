@@ -19,18 +19,40 @@ export default function ContactSection() {
   const [form, setForm] = useState({ name: '', email: '', message: '' });
   const [errors, setErrors] = useState({});
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [serverError, setServerError] = useState('');
   useReveal(sectionRef);
 
   const set = (k) => (e) => setForm((f) => ({ ...f, [k]: e.target.value }));
 
-  const submit = (e) => {
-    e.preventDefault();
-    const errs = validate(form);
-    if (Object.keys(errs).length) { setErrors(errs); return; }
-    setErrors({});
+const submit = async (e) => {
+  e.preventDefault();
+
+  const errs = validate(form);
+  if (Object.keys(errs).length) { setErrors(errs); return; }
+
+  setErrors({});
+  setServerError('');
+  setSending(true);
+
+  try {
+    const r = await fetch('/api/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(form),
+    });
+
+    const data = await r.json().catch(() => ({}));
+    if (!r.ok || !data.ok) throw new Error(data.error || 'Failed to send');
+
     setSent(true);
-    // PLACEHOLDER — wire up to Formspree / EmailJS / your backend
-  };
+    setForm({ name: '', email: '', message: '' });
+  } catch (err) {
+    setServerError('Could not send message. Please try again, or email me directly.');
+  } finally {
+    setSending(false);
+  }
+};
 
   return (
     <section id="contact-me" ref={sectionRef} aria-label="Contact me">
@@ -87,9 +109,20 @@ export default function ContactSection() {
                   {errors.message && <div id="err-msg" role="alert" style={{ color: '#ef4444', fontSize: 11, marginTop: 6, fontFamily: 'var(--font-mono)' }}>{errors.message}</div>}
                 </div>
 
-                <button type="submit" className="btn-primary" style={{ width: '100%', justifyContent: 'center', fontSize: 12, letterSpacing: '0.18em' }}>
-                  Send Message →
-                </button>
+                <button
+  type="submit"
+  className="btn-primary"
+  disabled={sending}
+  style={{ width: '100%', justifyContent: 'center', fontSize: 12, letterSpacing: '0.18em', opacity: sending ? 0.7 : 1 }}
+>
+  {sending ? 'Sending…' : 'Send Message →'}
+</button>
+
+{serverError && (
+  <div role="alert" style={{ color: '#ef4444', fontSize: 11, marginTop: 10, fontFamily: 'var(--font-mono)' }}>
+    {serverError}
+  </div>
+)}
               </form>
             )}
           </div>
@@ -100,8 +133,8 @@ export default function ContactSection() {
             <div className="glass" style={{ padding: '28px 30px', borderRadius: 12 }}>
               <div className="label" style={{ marginBottom: 18 }}>Get In Touch</div>
               {[
-                { label: 'Email', value: 'zaidanagreh1@gmail.com', icon: '✉' },           // PLACEHOLDER
-                { label: 'Location', value: 'Woodstock, Ontario, Canada', icon: '◎' },// PLACEHOLDER
+                { label: 'Email', value: 'zaidanagreh1@gmail.com', icon: '✉' },          
+                { label: 'Location', value: 'Woodstock, Ontario, Canada', icon: '◎' },
                 { label: 'Status', value: 'Open to internships & co-ops', icon: '◉' },
               ].map(({ label, value, icon }) => (
                 <div key={label} style={{ display: 'flex', gap: 14, marginBottom: 18, alignItems: 'flex-start' }}>
@@ -143,7 +176,7 @@ export default function ContactSection() {
 
             {/* Resume download */}
             <a
-              href="/resume.pdf"  // PLACEHOLDER — put resume.pdf in /public/
+              href="/resume.pdf" 
               download
               className="btn-primary"
               style={{ textAlign: 'center', justifyContent: 'center', borderColor: 'rgba(59,130,246,0.6)', color: 'var(--blue-soft)' }}

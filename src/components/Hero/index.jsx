@@ -155,9 +155,6 @@ export default function HeroSection() {
           {'Zaid Anagreh'}
         </h1>
 
-        {/* Typewriter rotating subtitle */}
-        <TypewriterTitle />
-
         {/* Value prop */}
         <p style={{
           fontFamily: 'var(--font-mono)',
