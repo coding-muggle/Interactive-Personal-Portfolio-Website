@@ -64,7 +64,16 @@ const submit = async (e) => {
 
         <div className="grid-2 reveal" style={{ gap: 48, alignItems: 'start' }}>
           {/* Form */}
-          <div className="glass scan-box" style={{ padding: '44px 40px', borderRadius: 14, borderColor: 'rgba(77,201,255,0.14)' }}>
+          <div
+  className="glass scan-box animated-border"
+  style={{
+    position: 'relative',
+    zIndex: 9999,
+    padding: '44px 40px',
+    borderRadius: 14,
+    borderColor: 'rgba(77,201,255,0.14)'
+  }}
+>
             {sent ? (
               <div style={{ textAlign: 'center', padding: '36px 0' }} role="status" aria-live="polite">
                 <div style={{ fontSize: 48, marginBottom: 20 }}>✓</div>
