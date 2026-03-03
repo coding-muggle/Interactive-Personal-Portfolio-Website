@@ -191,7 +191,7 @@ export default function HeroSection() {
   <svg
     width="28"
     height="44"
-    viewBox="0 0 28 44"
+    viewBox="0 0 28 65"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
     style={{
@@ -204,9 +204,9 @@ export default function HeroSection() {
     {/* Scroll wheel */}
     <rect x="12" y="7" width="4" height="8" rx="2" fill="#a0adb8"/>
     {/* Chevron 1 */}
-    <polyline points="7,42 14,49 21,42" stroke="#a0adb8" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+    <polyline points="7,48 14,55 21,48" stroke="#a0adb8" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
     {/* Chevron 2 */}
-    <polyline points="7,36 14,43 21,36" stroke="#a0adb8" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+    <polyline points="7,54 14,61 21,54" stroke="#a0adb8" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
   </svg>
 
   <style>{`
