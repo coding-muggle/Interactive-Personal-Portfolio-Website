@@ -13,7 +13,7 @@ portfolio/
     ├── styles/
     │   └── global.css                ← ALL styles: variables, layouts, animations
     ├── data/
-    │   └── index.js                  ← ⭐ YOUR CONTENT LIVES HERE (skills, projects, timeline)
+    │   └── index.js                  ← CONTENT LIVES HERE (skills, projects, timeline)
     ├── hooks/
     │   └── index.js                  ← Reusable hooks: mouse parallax, scroll reveal, skill panel
     └── components/

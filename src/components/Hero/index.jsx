@@ -182,21 +182,42 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* Scroll indicator */}
-      <div style={{
-        position: 'absolute', bottom: 32, left: '50%', transform: 'translateX(-50%)',
-        zIndex: 3, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8,
-        pointerEvents: 'none',
-      }}>
-        <div style={{ fontFamily: 'var(--font-mono)', fontSize: 10, letterSpacing: '0.2em', color: 'var(--text-dim)', textTransform: 'uppercase' }}>
-          scroll
-        </div>
-        <div style={{
-          width: 1, height: 16,
-          background: 'linear-gradient(to bottom, var(--cyan-dim), transparent)',
-          animation: 'scan 2.2s linear infinite',
-        }} />
-      </div>
+   {/* Scroll indicator */}
+<div style={{
+  position: 'absolute', bottom: 32, left: '50%', transform: 'translateX(-50%)',
+  zIndex: 3, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8,
+  pointerEvents: 'none',
+}}>
+  <svg
+    width="28"
+    height="44"
+    viewBox="0 0 28 44"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    style={{
+      filter: 'drop-shadow(0 0 6px cyan) drop-shadow(0 0 12px magenta)',
+      animation: 'rgbGlow 3s linear infinite',
+    }}
+  >
+    {/* Mouse body */}
+    <rect x="1.5" y="1.5" width="25" height="37" rx="12.5" stroke="#a0adb8" strokeWidth="2.5"/>
+    {/* Scroll wheel */}
+    <rect x="12" y="7" width="4" height="8" rx="2" fill="#a0adb8"/>
+    {/* Chevron 1 */}
+    <polyline points="7,42 14,49 21,42" stroke="#a0adb8" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+    {/* Chevron 2 */}
+    <polyline points="7,36 14,43 21,36" stroke="#a0adb8" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+  </svg>
+
+  <style>{`
+    @keyframes rgbGlow {
+      0%   { filter: drop-shadow(0 0 5px cyan) drop-shadow(0 0 10px cyan); }
+      33%  { filter: drop-shadow(0 0 5px magenta) drop-shadow(0 0 10px magenta); }
+      66%  { filter: drop-shadow(0 0 5px lime) drop-shadow(0 0 10px lime); }
+      100% { filter: drop-shadow(0 0 5px cyan) drop-shadow(0 0 10px cyan); }
+    }
+  `}</style>
+</div>
     </section>
   );
 }
