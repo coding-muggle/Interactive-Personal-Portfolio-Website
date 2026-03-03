@@ -144,7 +144,7 @@ export default function HeroSection() {
 
         {/* Name */}
         <h1 style={{
-          fontFamily: 'var(--font-head)',
+          fontFamily: 'var(--font-head)', 
           fontSize: 'clamp(36px, 6vw, 72px)',
           fontWeight: 800,
           lineHeight: 1.0,
