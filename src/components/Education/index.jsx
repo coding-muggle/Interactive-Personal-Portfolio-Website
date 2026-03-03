@@ -66,7 +66,7 @@ export default function EducationSection() {
                 Mechatronics Engineering {/* PLACEHOLDER */}
               </h3>
               <div style={{ fontFamily: 'var(--font-mono)', fontSize: 13, color: 'var(--text-mid)', lineHeight: 2, marginBottom: 28 }}>
-                <span style={{ color: 'var(--cyan)' }}>Toronto Metropolitan Univeristy</span> · Toronto, Ontario, Canada {/* PLACEHOLDER */}
+                <span style={{ color: 'var(--cyan)' }}>Toronto Metropolitan University</span> · Toronto, Ontario, Canada {/* PLACEHOLDER */}
                 <br />
                 Current Year: <span style={{ color: 'var(--text)' }}>2 of 4</span> {/* PLACEHOLDER */}
                 &nbsp;·&nbsp;
